@@ -1,35 +1,12 @@
-<?php
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+    <div>
+        <a href="/" wire:navigate>
+            <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+        </a>
+    </div>
 
-use App\Livewire\Forms\LoginForm;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Session;
-use Livewire\Attributes\Layout;
-use Livewire\Volt\Component;
-
-new #[Layout('layouts.guest')] class extends Component
-{
-    public LoginForm $form;
-
-    /**
-     * Handle an incoming authentication request.
-     */
-    public function login(): void
-    {
-        $this->validate();
-
-        $this->form->authenticate();
-
-        Session::regenerate();
-
-        $this->redirect(
-            session('url.intended', RouteServiceProvider::HOME),
-            navigate: true
-        );
-    }
-}; ?>
-
-<div>
-    <!-- Session Status -->
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+        <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form wire:submit="login">
@@ -72,4 +49,5 @@ new #[Layout('layouts.guest')] class extends Component
             </x-primary-button>
         </div>
     </form>
+    </div>
 </div>
