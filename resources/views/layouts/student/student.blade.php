@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @section('main')
-    <livewire:layout.navigation />
+    @livewire('layouts.student.navbar')
     @yield('student')
 @endsection
