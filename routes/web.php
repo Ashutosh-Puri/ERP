@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Livewire::setScriptRoute(function ($handle) {
     return Route::get('/livewire/livewire.js', $handle);
 });
